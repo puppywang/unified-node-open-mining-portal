@@ -94,7 +94,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
     async.parallel([
         function(callback){
-            daemon.cmd('getaddressinfo', [poolOptions.address], function(result) {
+            daemon.cmd(coinSymbol == 'BCA' ? 'validateaddress' : 'getaddressinfo', [poolOptions.address], function(result) {
                 if (result.error){
                     logger.error(logSystem, logComponent, 'Error with payment processing daemon ' + JSON.stringify(result.error));
                     callback(true);
@@ -390,7 +390,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     var addressAmounts = {};
                     var totalSent = 0;
 		      test.forEach(function(w) {
-			daemon.cmd('validateaddress', [w], function (results) {
+			daemon.cmd(coinSymbol == 'BCA' ? 'validateaddress' : 'getaddressinfo', [w], function (results) {
     			  var validWorkerAddress = results[0].response.isvalid;
 			if (!results[0].response.address) {
                 var worker = workers[w];
