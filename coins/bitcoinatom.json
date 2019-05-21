@@ -1,0 +1,5 @@
+{
+    "name": "BitcoinAtom",
+    "symbol": "BCA",
+    "algorithm": "sha256"
+}
