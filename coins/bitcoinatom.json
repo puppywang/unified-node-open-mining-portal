@@ -1,5 +1,6 @@
 {
     "name": "BitcoinAtom",
     "symbol": "BCA",
-    "algorithm": "sha256"
+    "algorithm": "sha256",
+    "reward": "POW"
 }
